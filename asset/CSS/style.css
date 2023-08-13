@@ -39,7 +39,8 @@ h6{
     color: #D8D8D8;
 }
 p{
-    color:azure;
+    font-size: 1rem;
+    font-weight: 800;
 }
 .navbar{
     font-size: 16px;
@@ -96,6 +97,7 @@ p{
 }
 
 #home{
+
     background-image: url('../../img/guitar.jpg'); 
     width: 100%;
     height: 150vh;
@@ -113,8 +115,12 @@ p{
     
 }
 #home button span{
-    background-color: #000;
-    color: azure;
+    background-color:black;
+    color:azure
+    
+}
+#home button span:hover{
+    color: coral;
 }
 
 
@@ -138,6 +144,9 @@ p{
     position: relative;
 }
 
+#new .one .details:hover{
+    background-color: cornsilk;
+}
 #new .one .details{
     position: absolute;
     top: 0;
@@ -172,4 +181,12 @@ p{
     flex-direction: column;
     align-items: flex-end;
     text-align: start;
+}
+ .but-btn {
+    background-color: black;
+    color: azure;
+
+}
+.but-btn:hover{
+    color:coral;
 }
