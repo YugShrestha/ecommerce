@@ -246,3 +246,37 @@ p{
 footer{
     background-color: #222222;
 }
+footer h5{
+color: #D8D8D8;
+font-weight: 700; 
+font-size: 1.2rem;   
+}
+footer h6{
+    color: #D8D8D8;
+    font-weight: 700; 
+    font-size: 1rem;   
+    }
+    footer p{
+        color: #999;
+        font-size: 0.8rem;
+    }
+
+ footer .copyright a{
+    color: #000;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    margin: 0 5px;
+ }
+
+ footer .copyright a:hover{
+    color:#fff;
+
+    background-color: #fb774b;
+ }
+    

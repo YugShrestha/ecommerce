@@ -200,10 +200,35 @@
             </div>
             <div>
                 <h6 class="text-uppercase">Email</h6>
-                <p>yug.shrestha1@gmail.com</p>
+                <p>yug.shrestha1@gmail.com</p><hr>
             </div>
         </div>
 
+        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+            <h5 class="pb-2">Instagram</h5>
+            <div class="row">
+                <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
+                <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
+                <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
+                <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
+            </div>
+        </div>
+
+    </div>
+    <div class="copyright">
+    <div class=" row container mx-auto">
+        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+            <img src="img/">
+        </div>
+        <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
+            <p>Ecommerce@ 2023 All Right Reserved</p>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        </div>
     </div>
 </footer>
                 
