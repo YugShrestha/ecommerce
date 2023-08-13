@@ -13,7 +13,7 @@
 
 <body>
     <!---nabvar-->
-    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,6 +177,36 @@
         <button class="text-uppercase">Shop Now</button>
     </div>
 </section>
+
+<!---footer---->
+
+<footer class="mt-5 py-5">
+    <div class="row container mx-auto pt-5">
+
+        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+            <img class="logo" src="img/ ">
+            <p class="pt-3">we provide the best product for the most Affordable price</p>
+        </div>
+
+        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+            <h5 class="pb-2">Contact Us</h5>
+            <div>
+                <h6 class="text-uppercase">Address</h6>
+                <p>Boudha, Kathmandu</p>
+            </div>
+            <div>
+                <h6 class="text-uppercase">Phone</h6>
+                <p>9810281307</p>
+            </div>
+            <div>
+                <h6 class="text-uppercase">Email</h6>
+                <p>yug.shrestha1@gmail.com</p>
+            </div>
+        </div>
+
+    </div>
+</footer>
+                
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
