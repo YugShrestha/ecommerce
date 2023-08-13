@@ -48,6 +48,7 @@ p{
     padding-bottom: 2rem !important;
     top: 0;
     left: 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 .navbar-light .navbar-nav .nav-link{
     padding: 0 20px;
@@ -237,4 +238,11 @@ p{
 }
 .star-row {
     color:goldenrod;
+}
+ .mt-5py-5{
+    background-color: green;
+}
+
+footer{
+    background-color: #222222;
 }
