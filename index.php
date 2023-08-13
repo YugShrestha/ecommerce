@@ -53,9 +53,9 @@
             <p style="color: azure;">Eshop Offers The Best Product For The Most Affordable Prices</p>
             <button><span>Shop Now</span></button>
         </div>
-        <!----brand-->
+        
     </section>
-
+<!----brand-->
     <section id="brand" class="container">
         <div class="row">
             <img class="image-fluid col-lg-3 col-md-6 colm-sm-12" src="img/brand1.jpg">
@@ -124,10 +124,10 @@
 
                 <div class="star-row">
                     <?php
-                    for ($i = 0; $i < 5; $i++) {
-                        echo '<i class="fas fa-star"></i>';
-                    }
-                    ?>
+                    for ($i = 0; $i < 5; $i++): ?>
+                       <?=  '<i class="fas fa-star"></i>'; ?>
+                    <?php endfor; ?>
+                    
                 </div>
                 <h5 class="p-name" style="color: black;">Les Paul</h5>
                 <h4 class="p-price">$199.8</h4>
@@ -168,6 +168,15 @@
             </div>
         </div>
     </section>
+
+<!---banner-->
+<section id="banner" class="my-5 py-5">
+    <div class="container">
+        <h4>MId SEASON'S SALE</h4>
+        <h1>Fender Guitar With All Accesories <hr> UP to 30% OFF</h1>
+        <button class="text-uppercase">Shop Now</button>
+    </div>
+</section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

@@ -190,3 +190,51 @@ p{
 .but-btn:hover{
     color:coral;
 }
+
+/* Product */
+
+.product {
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+ 
+.product img {
+    transition: 0.3s all;
+
+}
+.product img:hover{
+    opacity: 0.7;
+}
+
+#banner{
+    background-image: url('../../img/guitar.jpg');
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position-x:center ;
+    background-position-y:80px ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+#banner h1{
+    color: coral;
+}
+#banner button {
+    background-color: black;
+    color: azure
+
+}
+#banner button:hover{
+    background-color: coral;
+}
+#banner h4{
+ color: azure;
+}
+.star-row {
+    color:goldenrod;
+}
