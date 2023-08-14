@@ -279,4 +279,23 @@ footer h6{
 
     background-color: #fb774b;
  }
+ .page-item .page-link
+ {
+    font-weight: 600; 
+font-size: 1rem;  
+ }
+
+ .page-item .page-link:hover {
+    background-color: coral; /* Replace with your desired background color */
+    color: #fff; /* Change the text color to ensure readability */
     
+}
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis:24%;
+
+}
