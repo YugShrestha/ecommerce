@@ -79,6 +79,55 @@
     </div>
  </section>
 
+ <!----related products-->
+ <section id="related-products" class="my-5 pb-5">
+        <div class="container text-center mt-5 py-5 ">
+            <h3>Related products</h3>
+            <hr>
+            
+        </div>
+        <div class="row mx-auto container-fluid">
+            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+                <img class="img-fluid mb-3" src="img/featured1.jpg">
+
+                
+                <h5 class="p-name" style="color: black;">Fender</h5>
+                <h4 class="p-price">$199.8</h4>
+                <button class="but-btn"><span>Buy Now</span></button>
+            </div>
+            
+            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+                <img class="img-fluid mb-3" src="img/featured2.jpg">
+
+                
+                <h5 class="p-name" style="color: black;">Les Paul</h5>
+                <h4 class="p-price">$199.8</h4>
+                <button class="but-btn"><span>Buy Now</span></button>
+            </div>
+
+
+            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+                <img class="img-fluid mb-3" src="img/featured3.jpg">
+
+                
+                <h5 class="p-name" style="color: black;">Ibanaz</h5>
+                <h4 class="p-price">$199.8</h4>
+                <button class="but-btn"><span>Buy Now</span></button>
+            </div>
+
+
+
+            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+                <img class="img-fluid mb-3" src="img/featured4.jpg">
+
+                
+                <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
+                <h4 class="p-price">$199.8</h4>
+                <button class="but-btn"><span>Buy Now</span></button>
+            </div>
+        </div>
+    </section>
+
 
 
 
