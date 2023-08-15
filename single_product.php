@@ -45,7 +45,7 @@
         </div>
     </nav>
     
- <section class="single-product my-5 pt-5">
+ <section class="container single-product  my-5 pt-5">
     <div class="row mt-5">
         <div class ="col-lg-5 col-md-5 col-sm-12">
             <img class="img-fluid w-100 pb-1" src="img/featured1.jpg">
@@ -64,6 +64,18 @@
             </div>
             </div>
         </div>
+        
+        <div class ="col-lg-6 col-md-12 col-sm-12">
+            <h6 >Fender</h6>
+            <h3 class="py-4">Squire bullet</h3>
+            <h2>200$</h2>
+            <input type="number" value="1">
+            <button  class="buy-btn">Add To Cart</button>
+            <h4 class="mt-5 mb-5">product details<h4>
+                <span>The details of this product will be displayed shortly.</span>
+            </h4>
+        </div>
+
     </div>
  </section>
 

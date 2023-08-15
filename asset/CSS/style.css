@@ -286,9 +286,8 @@ font-size: 1rem;
  }
 
  .page-item .page-link:hover {
-    background-color: coral; /* Replace with your desired background color */
-    color: #fff; /* Change the text color to ensure readability */
-    
+    background-color: coral; 
+    color: #fff;
 }
 
 .small-img-group{
@@ -298,4 +297,38 @@ font-size: 1rem;
 .small-img-col{
     flex-basis:24%;
 
+}
+font{
+    font-weight: 700; 
+    font-size: 1rem;   
+}
+.col-lg-6.col-md-12.col-sm-12 h6,
+.col-lg-6.col-md-12.col-sm-12 h3,
+.col-lg-6.col-md-12.col-sm-12 h2 {
+    font-weight: 600; 
+    font-size: 1rem/* Adjust the font size as needed */
+}
+
+.col-lg-6.col-md-12.col-sm-12 h2 {
+    font-size: 30px; /* Font size for the price */
+}
+.col-lg-6.col-md-12.col-sm-12 .buy-btn{
+    background-color: #222222; 
+    opacity:1;
+    transition:0.4s all;
+    color: #fff;
+}
+.col-lg-6.col-md-12.col-sm-12 .buy-btn:hover{
+    background-color: coral;
+}
+    
+.single-product input:focus{
+    outline: none;
+}
+.single-product input{
+    width:50px;
+    height:40px;
+    padding-left:10px;
+    font-size:16px;
+    margin-right:10px ;
 }
