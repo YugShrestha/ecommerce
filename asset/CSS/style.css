@@ -299,3 +299,17 @@ font-size: 1rem;
     flex-basis:24%;
 
 }
+font{
+    font-weight: 700; 
+    font-size: 1rem;   
+}
+.col-lg-6.col-md-12.col-sm-12 h6,
+.col-lg-6.col-md-12.col-sm-12 h3,
+.col-lg-6.col-md-12.col-sm-12 h2 {
+    font-weight: 600; 
+    font-size: 1rem/* Adjust the font size as needed */
+}
+
+.col-lg-6.col-md-12.col-sm-12 h2 {
+    font-size: 30px; /* Font size for the price */
+}

@@ -52,14 +52,14 @@
             <p>Here you can check out our featured products</p>
         </div>
         <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured1.jpg">
                 <h5 class="p-name" style="color: black;">Fender</h5>
                 <h4 class="p-price">$199.8</h4>
                 <button class="but-btn"><span>Buy Now</span></button>
             </div>
             
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured2.jpg">
 
                
@@ -69,7 +69,7 @@
             </div>
 
 
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured3.jpg">
 
                 <h5 class="p-name" style="color: black;">Ibanaz</h5>
@@ -79,22 +79,20 @@
 
 
 
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured4.jpg">
-
-                
                 <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
                 <h4 class="p-price">$199.8</h4>
                 <button class="but-btn"><span>Buy Now</span></button>
             </div>
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured1.jpg">
                 <h5 class="p-name" style="color: black;">Fender</h5>
                 <h4 class="p-price">$199.8</h4>
                 <button class="but-btn"><span>Buy Now</span></button>
             </div>
             
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured2.jpg">
 
                
@@ -104,7 +102,7 @@
             </div>
 
 
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-3">
                 <img class="img-fluid mb-3" src="img/featured3.jpg">
 
                 <h5 class="p-name" style="color: black;">Ibanaz</h5>
