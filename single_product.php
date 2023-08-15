@@ -66,11 +66,14 @@
         </div>
         
         <div class ="col-lg-6 col-md-12 col-sm-12">
-            <h6 class="font">Fender</h6>
+            <h6 >Fender</h6>
             <h3 class="py-4">Squire bullet</h3>
             <h2>200$</h2>
             <input type="number" value="1">
-            <button class="buy-btn">Add To Cart</button>
+            <button  class="buy-btn">Add To Cart</button>
+            <h4 class="mt-5 mb-5">product details<h4>
+                <span>The details of this product will be displayed shortly.</span>
+            </h4>
         </div>
 
     </div>
