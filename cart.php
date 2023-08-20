@@ -48,7 +48,7 @@
 
 
  <!---cart---->
- <section class = "cart container my-5 py-5">
+ <section class ="cart container my-5 py-5">
     <div class="container mt-5">
         <h2 class="font-weight-bolde">Your Cart</h2>
         <hr>
@@ -63,7 +63,12 @@
             <td>
                 <div class="product-info">
                     <img src="img/featured1.jpg">
-                     
+                    <div>
+                    <p>guitar</p>
+                    <small><span>$</span>100</small>
+                     <br>
+                     <a class="remove-btn" href="#" >Remove</a>
+                     </div>
                 </div>
             </td>
         </tr>
