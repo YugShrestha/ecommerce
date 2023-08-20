@@ -355,7 +355,7 @@ font{
 .cart table td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ccc;
+   
 }
 
 .cart table th {
@@ -407,6 +407,45 @@ font{
 .cart hr{
     border: none;
     border-top: 4px solid coral;
-    width: 5%; /* Adjust this value to control the line length */
-    margin-top: 5px; /* A
+    width: 5%; 
+    margin-top: 5px; 
+}
+.cart input:focus{
+    outline: none;
+    font-weight: 600; 
+    font-size: 1rem;
+}
+.cart input{
+    width:50px;
+    height:40px;
+    padding-left:10px;
+    font-size:16px;
+    margin-right:10px ;
+}
+
+.cart-total{
+    display: flex;
+    justify-content: flex-end;
+}
+.cart-total table{
+    width: 100%;
+    max-width: 500px;
+    border-top: 3px solid #fb774b;
+}
+td:last-child{
+    text-align: right;
+
+}
+th:last-child{
+    text-align: right;
+}
+.checkout-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.btn.checkout-btn{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fb774b;
+    color: #fff;
 }
