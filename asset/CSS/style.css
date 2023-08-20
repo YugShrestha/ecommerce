@@ -319,7 +319,7 @@ font{
     color: #fff;
 }
 .col-lg-6.col-md-12.col-sm-12 .buy-btn:hover{
-    background-color: coral;
+    background-color:coral
 }
     
 .single-product input:focus{
@@ -335,17 +335,13 @@ font{
     margin-right:10px ;
 }
 
-.small-img {
+
+.small-img-col img {
     cursor: pointer;
     margin-bottom: 2rem;
-    transition: 0.3s all;
-
+    transition: 0.3s ease; /* Smooth transition for the opacity change */
 }
- 
-.single-product {
-    transition: 0.3s all;
 
-}
-.small-img:hover{
-    opacity: 0.7;
+.small-img-col img:hover {
+    opacity: 0.7; /* Change this value to your desired opacity */
 }
