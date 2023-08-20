@@ -71,7 +71,7 @@
             <h2>200$</h2>
             <input type="number" value="1">
             <button  class="buy-btn">Add To Cart</button>
-            <h4 class="mt-5 mb-5">product details<h4>
+            <h4 class="mt-5 mb-5">product details</h4>
                 <span>The details of this product will be displayed shortly.</span>
             </h4>
         </div>
@@ -87,7 +87,7 @@
             
         </div>
         <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured1.jpg" >
 
                 
@@ -96,7 +96,7 @@
                 <button class="but-btn"><span>Buy Now</span></button>
             </div>
             
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured2.jpg">
 
                 
@@ -106,7 +106,7 @@
             </div>
 
 
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured3.jpg">
 
                 
@@ -117,7 +117,7 @@
 
 
 
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="img/featured4.jpg">
 
                   
