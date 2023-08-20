@@ -403,3 +403,10 @@ font{
 .cart table .edit-btn:hover {
     text-decoration: underline;
 }
+
+.cart hr{
+    border: none;
+    border-top: 4px solid coral;
+    width: 5%; /* Adjust this value to control the line length */
+    margin-top: 5px; /* A
+}
