@@ -71,6 +71,15 @@
                      </div>
                 </div>
             </td>
+            <td>
+                <input type="number" value="1">
+                <a class="edit-btn">Edit</a>
+
+            </td>
+            <td>
+                <span>$</span>
+                <span clas="Price">155</span>
+            </td>
         </tr>
      </table>
  </section>

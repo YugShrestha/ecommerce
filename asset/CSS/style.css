@@ -390,3 +390,16 @@ font{
     border-radius: 4px;
     cursor: pointer;
 }
+.edit-btn{
+    
+    border: none;
+    color: coral;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.cart table .edit-btn:hover {
+    text-decoration: underline;
+}
