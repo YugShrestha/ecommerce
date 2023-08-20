@@ -72,7 +72,7 @@
                 </div>
             </td>
             <td>
-                <input type="number" value="1">
+                <input type="number" value="">
                 <a class="edit-btn">Edit</a>
 
             </td>
@@ -82,6 +82,22 @@
             </td>
         </tr>
      </table>
+     <div class="cart-total">
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td>$155</td>
+            </tr>
+            <tr>
+                <td>TOtal</td>
+                <td>$155</td>
+            </tr>
+
+        </table>
+     </div>
+     <div class="checkout-container">
+        <button class="btn checkout-btn">Checkout</button>
+     </div>
  </section>
 
 

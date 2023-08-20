@@ -69,7 +69,7 @@
             <h6 >Fender</h6>
             <h3 class="py-4">Squire bullet</h3>
             <h2>200$</h2>
-            <input type="number" value="1">
+            <input type="number" value="">
             <button  class="buy-btn">Add To Cart</button>
             <h4 class="mt-5 mb-5">product details</h4>
                 <span>The details of this product will be displayed shortly.</span>
