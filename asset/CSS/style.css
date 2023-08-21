@@ -398,10 +398,13 @@ font{
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
     
 }
 .cart table .edit-btn:hover {
     text-decoration: underline;
+    
 }
 
 .cart hr{
@@ -449,9 +452,42 @@ th:last-child{
     background-color: #fb774b;
     color: #fff;
 }
+
+/*login*/
 .login hr{
     border: none;
     border-top: 4px solid coral;
     width: 5%; 
     margin-top: 5px; 
+}
+
+#login-form{
+    width:50%;
+    margin:  5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #fb774b; 
+}
+#login-form input{
+    width:50%;
+    margin:5px auto;
+    border: 2px solid black;
+}
+#login-form #login-btn{
+    background-color: #fb774b;
+    color:#fff
+}
+#login-form #registration-url{
+    color: #fb774b;
+    font-size: 1rem;
+    font-weight: 550;
+}
+#login-form label{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.form-group .form-control{
+    font-size: 1rem;
+    font-weight: 600;
+
 }

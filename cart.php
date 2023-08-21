@@ -67,7 +67,8 @@
                     <p>guitar</p>
                     <small><span>$</span>100</small>
                      <br>
-                     <a class="remove-btn" href="#" >Remove</a>
+                     <a class="remove-btn" style="font-size: 1rem;
+    font-weight: 600;" href="#" >Remove</a>
                      </div>
                 </div>
             </td>

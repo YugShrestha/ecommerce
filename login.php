@@ -63,7 +63,15 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="login-email" name="email" placeholder="Password" required>
+                    <input type="password" class="form-control" id="login-email" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                
+                    <input type="submit" class="btn" id="login-btn" value="login" >
+                </div>
+                <div class="form-group">
+                
+                    <a id="registration-url" class="btn">Don't have account? Register </a>
                 </div>
             </form>
         </div>
