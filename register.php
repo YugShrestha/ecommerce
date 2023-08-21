@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shop</title>
+    <title>home</title>
     <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <link rel="stylesheet" href="asset/CSS/style.css">
 
 </head>
- <!---nabvar-->
-    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
+
+<body>
+     <!---nabvar-->
+     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,99 +46,50 @@
         </div>
     </nav>
 
+    <!----Registe--->
+    <div class="login">
+    <section class="my-5 py-5">
+        <div class="container text-center mt-3 pt-5">
+            <h2 style="color:coral"class="form-weight-bold">Register</h2>
+            <hr class ="mx-auto">
+            </div>
 
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5 "><br>
-            <h3> Our Featured</h3>
-            <hr>
-            <p>Here you can check out our featured products</p>
         </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured1.jpg">
-                <h5 class="p-name" style="color: black;">Fender</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-            
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured2.jpg">
-
-               
-                <h5 class="p-name" style="color: black;">Les Paul</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured3.jpg">
-
-                <h5 class="p-name" style="color: black;">Ibanaz</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured4.jpg">
-                <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured1.jpg">
-                <h5 class="p-name" style="color: black;">Fender</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-            
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured2.jpg">
-
-               
-                <h5 class="p-name" style="color: black;">Les Paul</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-sm-3">
-                <img class="img-fluid mb-3" src="img/featured3.jpg">
-
-                <h5 class="p-name" style="color: black;">Ibanaz</h5>
-                <h4 class="p-price">$199.8</h4> 
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured4.jpg">
-
+        <div class="mx-auto container">
+            <form id="register-form">
+                <div class="form-group">
+                    <label>name </label>
+                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" id="register-confirm-password" name="confirmpassword" placeholder="Confirm Password" required>
+                </div>
+                <div class="form-group">
                 
-                <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-            
-            <nav aria-label=" page navigation exampler">
-                <ul class="pagination mt-5">
-               <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-               <li class="page-item"><a class="page-link" href="#">1</a></li>
-               <li class="page-item"><a class="page-link" href="#">2</a></li>
-               <li class="page-item"><a class="page-link" href="#">3</a></li>
-               <li class="page-item"><a class="page-link" href="#">Next</a></li>
-
-            </ul>
-            </nav>
-            
+                    <input type="submit" class="btn" id="register-btn" value="Register" >
+                </div>
+                <div class="form-group">
+                
+                    <a id="login-url" class="btn">Do you have an account? Login </a>
+                </div>
+            </form>
         </div>
     </section>
 
-      <!---footer---->
-     <footer class="mt-5 py-5">
+
+    
+<!---footer---->
+
+<footer class="mt-5 py-5">
     <div class="row container mx-auto pt-5">
 
         <div class="footer-one col-lg-3 col-md-6 col-sm-12">
@@ -187,9 +140,17 @@
         </div>
     </div>
 </footer>
-             
+                
 
-<body>
+
+
+
+
+
+    
+
+
+
 
 
 
