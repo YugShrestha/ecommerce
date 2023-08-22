@@ -480,7 +480,7 @@ th:last-child{
 #login-form #registration-url{
     color: #fb774b;
     font-size: 1rem;
-    font-weight: 550;
+    font-weight: 600;
 }
 #login-form label{
     font-size: 1rem;
@@ -518,7 +518,7 @@ th:last-child{
 #register-form #login-url{
     color: #fb774b;
     font-size: 1rem;
-    font-weight: 550;
+    font-weight: 600;
 }
 #register-form label{
     font-size: 1rem;
@@ -529,3 +529,39 @@ th:last-child{
     font-weight: 600;
 
 }
+
+/* Acount form */
+
+#account-form{
+    width:50%;
+    margin: 35px auto;
+    text-align:center;
+    padding: 20px;
+}
+#account-form input{
+    margin:5px auto;
+
+}
+
+#account-form #change-pass-btn{
+    color: #fff;
+    background-color: #fb774b;
+}
+ .account-info #order-btn,#logout-btn{
+    color:#fb774b;
+    text-decoration: none;
+}
+
+#account-form  hr{
+    border: none;
+    border-top: 4px solid coral;
+    width: 30%; 
+    margin-top: 5px; 
+}
+.my-5.py-5 hr{
+    border: none;
+    border-top: 4px solid coral;
+    width: 10%; 
+    margin-top: 5px; 
+}
+
