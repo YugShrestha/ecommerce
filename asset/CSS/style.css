@@ -542,6 +542,11 @@ th:last-child{
     text-align:center;
     padding: 20px;
 }
+ .form-group label{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 #account-form input{
     margin:5px auto;
 
@@ -593,4 +598,7 @@ th:last-child{
 #checkout-form label{
     font-size: 1rem;
     font-weight: 600;
+}
+#contact span{
+    color: #ff4500;
 }
