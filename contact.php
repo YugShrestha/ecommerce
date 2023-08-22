@@ -14,8 +14,8 @@
 <body>
 
 
-    <!---nabvar-->
-    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
+     <!---nabvar-->
+     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,30 +24,46 @@
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ContactUs</a>
+                        <a class="nav-link" href="contact.php">ContactUs</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-shopping-bag"></i>
-                        <i class="fas fa-user"></i>
+                        <a href="account.php"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mt-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
-    
+
+    <!---contact-->
+    <section id="contact" class="container my-5 py-5">
+        <div class="container text-center mt-5">
+            <h3>Contact Us</h3>
+            <hr class="mx-auto">
+            <p class= "w-50 mx-auto">
+            Phone Number: <span>+977 9810281307</span>
+            </p>
+            <p class= "w-50 mx-auto">
+            Email address:<span> yug@gmail.com</span>
+            </p>
+            <p class= "w-50 mx-auto">
+                we work for 24 hours</span>
+            </p>
+        </div>
+    </section>
 
     
 
