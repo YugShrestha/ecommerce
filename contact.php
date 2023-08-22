@@ -12,8 +12,10 @@
 </head>
 
 <body>
-     <!---nabvar-->
-     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
+
+
+    <!---nabvar-->
+    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,67 +47,12 @@
             </div>
         </div>
     </nav>
+    
 
-    <!---checkout----->
-    <section class="my-5 py-5">
-        <div class="container text-center mt-3 pt-5">
-            <h2 style="color:coral"class="form-weight-bold">Checkout</h2>
-            <hr class ="mx-auto">
-            </div>
-
-        </div>
-        <div class="mx-auto container">
-            <form id="checkout-form">
-                <div class="form-group checkout-small-element">
-                    <label>name </label>
-                    <input type="text" class="form-control" id="checkoutr-name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group checkout-small-element">
-                    <label>Email</label>
-                    <input type="text" class="form-control" id="checkout-email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group checkout-small-element">
-                    <label>Phone</label>
-                    <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="Phone" required>
-                </div>
-                <div class="form-group checkout-small-element">
-                    <label>City</label>
-                    <input type="text" class="form-control" id="checkout-city" name="confirmpassword" placeholder="City" required>
-                </div>
-                <div class="form-group checkout-large-element">
-                    <label>Address</label>
-                    <input type="text" class="form-control" id="checkout-address" name="confirmpassword" placeholder="Address" required>
-                </div>
-                <div class="form-group checkout-btn-container">
-                
-                    <input type="submit" class="btn" id="checkout-btn" value="Checkout" >
-                </div>
-                
-            </form>
-        </div>
-    </section>
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!---footer---->
+<!---footer---->
 
 <footer class="mt-5 py-5">
     <div class="row container mx-auto pt-5">
@@ -158,8 +105,9 @@
         </div>
     </div>
 </footer>
+                
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>
