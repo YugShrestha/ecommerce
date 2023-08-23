@@ -123,53 +123,7 @@
                 <button class="but-btn"><span>Buy Now</span></button>
             </div>
             
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured2.jpg">
-
-                <div class="star-row">
-                    <?php
-                    for ($i = 0; $i < 5; $i++): ?>
-                       <?=  '<i class="fas fa-star"></i>'; ?>
-                    <?php endfor; ?>
-                    
-                </div>
-                <h5 class="p-name" style="color: black;">Les Paul</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured3.jpg">
-
-                <div class="star-row">
-                    <?php
-                    for ($i = 0; $i < 5; $i++) {
-                        echo '<i class="fas fa-star"></i>';
-                    }
-                    ?>
-                </div>
-                <h5 class="p-name" style="color: black;">Ibanaz</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured4.jpg">
-
-                <div class="star-row">
-                    <?php
-                    for ($i = 0; $i < 5; $i++) {
-                        echo '<i class="fas fa-star"></i>';
-                    }
-                    ?>
-                </div>
-                <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
+           
         </div>
     </section>
 
