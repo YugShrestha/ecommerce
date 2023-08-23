@@ -102,14 +102,16 @@
     </section>
     <!----featured-->
     <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5 ">
-            <h3> Our Featured</h3>
-            <hr>
-            <p>Here you can check out our featured products</p>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured1.jpg">
+    <div class="container text-center mt-5 py-5">
+        <h3>Our Featured</h3>
+        <hr class="mx-auto">
+        <p>Here you can check out our featured products</p>
+    </div>
+    <?php include("server/get_featured_product.php"); ?>
+    <div class="row mx-auto container-fluid">
+        <?php while ($row = $featuredProducts->fetch_assoc()) { ?>
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+                <img class="img-fluid mb-3" src="img/<?= $row['product_image']; ?>" >
 
                 <div class="star-row">
                     <?php
@@ -118,14 +120,13 @@
                     }
                     ?>
                 </div>
-                <h5 class="p-name" style="color: black;">Fender</h5>
-                <h4 class="p-price">$199.8</h4>
+                <h5 class="p-name" ><span><?= $row['product_name']; ?></span></h5>
+                <h4 class="p-price">$<?= $row['product_price']; ?></h4>
                 <button class="but-btn"><span>Buy Now</span></button>
             </div>
-            
-           
-        </div>
-    </section>
+        <?php } ?>
+    </div>
+</section>
 
 <!---banner-->
 <section id="banner" class="my-5 py-5">

@@ -240,6 +240,12 @@ p{
 .star-row {
     color:goldenrod;
 }
+.product .p-name span{
+    color:coral;
+    font-size: 1rem;
+    font-weight: 600;
+
+}
  .mt-5py-5{
     background-color: green;
 }
