@@ -48,7 +48,7 @@
         </div>
     </nav>
 
-    
+
     <section id="home">
         <div class="container">
 
@@ -57,9 +57,9 @@
             <p style="color: azure;">Eshop Offers The Best Product For The Most Affordable Prices</p>
             <button><span>Shop Now</span></button>
         </div>
-        
+
     </section>
-<!----brand-->
+    <!----brand-->
     <section id="brand" class="container">
         <div class="row">
             <img class="image-fluid col-lg-3 col-md-6 colm-sm-12" src="img/brand1.jpg">
@@ -102,95 +102,98 @@
     </section>
     <!----featured-->
     <section id="featured" class="my-5 pb-5">
-    <div class="container text-center mt-5 py-5">
-        <h3>Our Featured</h3>
-        <hr class="mx-auto">
-        <p>Here you can check out our featured products</p>
-    </div>
-    <?php include("server/get_featured_product.php"); ?>
-    <div class="row mx-auto container-fluid">
-        <?php while ($row = $featuredProducts->fetch_assoc()) { ?>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/<?= $row['product_image']; ?>" >
+        <div class="container text-center mt-5 py-5">
+            <h3>Our Featured</h3>
+            <hr class="mx-auto">
+            <p>Here you can check out our featured products</p>
+        </div>
+        <?php include("server/get_featured_product.php"); ?>
+        <div class="row mx-auto container-fluid">
+            <?php while ($row = $featuredProducts->fetch_assoc()) { ?>
+                <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+                    <img class="img-fluid mb-3" src="img/<?= $row['product_image']; ?>">
 
-                <div class="star-row">
-                    <?php
-                    for ($i = 0; $i < 5; $i++) {
-                        echo '<i class="fas fa-star"></i>';
-                    }
-                    ?>
+                    <div class="star-row">
+                        <?php
+                        for ($i = 0; $i < 5; $i++) {
+                            echo '<i class="fas fa-star"></i>';
+                        }
+                        ?>
+                    </div>
+                    <h5 class="p-name"><span><?= $row['product_name']; ?></span></h5>
+                    <h4 class="p-price">$<?= $row['product_price']; ?></h4>
+                    <a href="<?= "single_product.php?product_id=" . $row['product_id']; ?>"><button class="but-btn"><span>Buy Now</span></button></a>
                 </div>
-                <h5 class="p-name" ><span><?= $row['product_name']; ?></span></h5>
-                <h4 class="p-price">$<?= $row['product_price']; ?></h4>
-                <a href="<?= "single_product.php?product_id= ".$row['product_id'];?>"><button class="but-btn"><span>Buy Now</span></button></a>
+            <?php } ?>
+        </div>
+    </section>
+    
+    <!---banner-->
+    <section id="banner" class="my-5 py-5">
+        <div class="container">
+            <h4>MId SEASON'S SALE</h4>
+            <h1>Fender Guitar With All Accesories
+                <hr> UP to 30% OFF
+            </h1>
+            <button class="text-uppercase">Shop Now</button>
+        </div>
+    </section>
+
+    <!---footer---->
+
+    <footer class="mt-5 py-5">
+        <div class="row container mx-auto pt-5">
+
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <img class="logo" src="img/ ">
+                <p class="pt-3">we provide the best product for the most Affordable price</p>
             </div>
-        <?php } ?>
-    </div>
-</section>
 
-<!---banner-->
-<section id="banner" class="my-5 py-5">
-    <div class="container">
-        <h4>MId SEASON'S SALE</h4>
-        <h1>Fender Guitar With All Accesories <hr> UP to 30% OFF</h1>
-        <button class="text-uppercase">Shop Now</button>
-    </div>
-</section>
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <h5 class="pb-2">Contact Us</h5>
+                <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>Boudha, Kathmandu</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p>9810281307</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>yug.shrestha1@gmail.com</p>
+                    <hr>
+                </div>
+            </div>
 
-<!---footer---->
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                    <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
+                </div>
+            </div>
 
-<footer class="mt-5 py-5">
-    <div class="row container mx-auto pt-5">
-
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <img class="logo" src="img/ ">
-            <p class="pt-3">we provide the best product for the most Affordable price</p>
         </div>
-
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <h5 class="pb-2">Contact Us</h5>
-            <div>
-                <h6 class="text-uppercase">Address</h6>
-                <p>Boudha, Kathmandu</p>
-            </div>
-            <div>
-                <h6 class="text-uppercase">Phone</h6>
-                <p>9810281307</p>
-            </div>
-            <div>
-                <h6 class="text-uppercase">Email</h6>
-                <p>yug.shrestha1@gmail.com</p><hr>
-            </div>
-        </div>
-
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <h5 class="pb-2">Instagram</h5>
-            <div class="row">
-                <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
+        <div class="copyright">
+            <div class=" row container mx-auto">
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <img src="img/">
+                </div>
+                <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
+                    <p>Ecommerce@ 2023 All Right Reserved</p>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
         </div>
+    </footer>
 
-    </div>
-    <div class="copyright">
-    <div class=" row container mx-auto">
-        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-            <img src="img/">
-        </div>
-        <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
-            <p>Ecommerce@ 2023 All Right Reserved</p>
-        </div>
-        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        </div>
-    </div>
-</footer>
-                
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
