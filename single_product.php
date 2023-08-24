@@ -96,9 +96,10 @@ if (isset($_GET['product_id'])) {
                         <h3 class="py-4"><?= $row['product_name']; ?></h3>
                         <h2>$<?= $row['product_price'] ?></h2>
                         <form method="POST" action="cart.php">
-                            <input type="hidden" name="product_image" value="img/<?= $row['product_image']; ?>">
-                            <input type="hidden" name="product_name" value="img/<?= $row['product_name']; ?>">
-                            <input type="hidden" name="product_price" value="img/<?= $row['product_price']; ?>">
+                        <input type="hidden" name="product_id" value="<?= $row['product_id']; ?>">
+                            <input type="hidden" name="product_image" value="<?= $row['product_image']; ?>">
+                            <input type="hidden" name="product_name" value="<?= $row['product_name']; ?>">
+                            <input type="hidden" name="product_price" value="<?= $row['product_price']; ?>">
                             <input type="number" name="product_quantity" value="1">
                             <button class="buy-btn" type="submit" name="add_to_cart">Add To Cart</button>
                         </form>

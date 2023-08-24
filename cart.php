@@ -1,3 +1,57 @@
+<?php 
+session_start();
+
+if (isset($_POST['add_to_cart'])) {
+    if (isset($_SESSION['cart'])) { // Use $_SESSION instead of $session
+        $products_array_ids = array_column($_SESSION['cart'], 'product_id');
+        if (!in_array($_POST['product_id'], $products_array_ids)) {
+
+            $product_id = $_POST['product_id']; // Assign the product ID
+            $product_name = $_POST['product_name'];
+            $product_price = $_POST['product_price'];
+            $product_image = $_POST['product_image'];
+            $product_quantity = $_POST['product_quantity'];
+
+            $product_array = array(
+                'product_id' => $product_id, // Use the correct variable name
+                'product_name' => $product_name,
+                'product_price' => $product_price,
+                'product_image' => $product_image,
+                'product_quantity' => $product_quantity,
+            );
+
+            $_SESSION['cart'][$product_id] = $product_array; // Use $product_id as the array key
+
+        } else {
+            echo '<script>alert("Product was already added")</script>';
+        }
+    } else {
+        $product_id = $_POST['product_id'];
+        $product_name = $_POST['product_name'];
+        $product_price = $_POST['product_price'];
+        $product_image = $_POST['product_image'];
+        $product_quantity = $_POST['product_quantity'];
+
+        $product_array = array(
+            'product_id' => $product_id,
+            'product_name' => $product_name,
+            'product_price' => $product_price,
+            'product_image' => $product_image,
+            'product_quantity' => $product_quantity,
+        );
+
+        $_SESSION['cart'][$product_id] = $product_array;
+    }
+} else {
+    header('location:index.php');
+}
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,24 +76,24 @@
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ContactUs</a>
+                        <a class="nav-link" href="contact.php">ContactUs</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-shopping-bag"></i>
-                        <i class="fas fa-user"></i>
+                        <a href="account.php"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mt-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -59,13 +113,15 @@
             <th>Quantity</th>
             <th>Subtotal</th>
         </tr>
+
+        <?php foreach($_SESSION['cart'] as $key=>$value){ ?>
         <tr>
             <td>
                 <div class="product-info">
-                    <img src="img/featured1.jpg">
+                    <img src="img/<?= $value['product_image'];?>">
                     <div>
-                    <p>guitar</p>
-                    <small><span>$</span>100</small>
+                    <p><?=$value['product_name'] ?></p>
+                    <small><span>$</span><?= $value['product_price'];?></small>
                      <br>
                      <a class="remove-btn" style="font-size: 1rem;
                         font-weight: 600;" href="#" >Remove</a>
@@ -73,7 +129,7 @@
                 </div>
             </td>
             <td>
-                <input type="number" value="">
+                <input type="number" value="<?= $value['product_quantity'];?>">
                 <a class="edit-btn">Edit</a>
 
             </td>
@@ -81,6 +137,7 @@
                 <span>$</span>
                 <span clas="Price">155</span>
             </td>
+            <?php } ?>
         </tr>
      </table>
      <div class="cart-total">
