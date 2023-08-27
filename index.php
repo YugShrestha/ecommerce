@@ -15,7 +15,7 @@
 
 
     <!---nabvar-->
-    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top active">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top ">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,10 @@
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link <?= $_SERVER['REQUEST_URI']==='index.php'?'active':''; ?> " aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link <?= $_SERVER['REQUEST_URI'] === 'index.php' ? 'active' : ''; ?> " aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?= $_SERVER['REQUEST_URI']==='shop.php'?'active':''; ?> "href="shop.php">Shop</a>
+                        <a class="nav-link <?= $_SERVER['REQUEST_URI'] === 'shop.php' ? 'active' : ''; ?> " href="shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
@@ -55,12 +55,12 @@
             <h5>NEW ARRIVALS</h5>
             <h1><span>Best Prices</span> This Season</h1>
             <p style="color: azure;">Eshop Offers The Best Product For The Most Affordable Prices</p>
-            <button><span>Shop Now</span></button>
+            <a href='shop.php'><button><span>Shop Now</span></button></a>
         </div>
 
     </section>
     <!----brand-->
-    <section id="brand" class="container">
+    <?php /*<section id="brand" class="container">
         <div class="row">
             <img class="image-fluid col-lg-3 col-md-6 colm-sm-12" src="img/brand1.jpg">
             <img class="image-fluid col-lg-3 col-md-6 colm-sm-12" src="img/brand2.png">
@@ -68,7 +68,8 @@
             <img class="image-fluid col-lg-3 col-md-6 colm-sm-12" src="img/brand4.png">
         </div>
     </section>
-    <!---NEW-->
+
+    <!---NEW AMPS-->
     <section id="new" class="w-100">
         <div class="row p-0 m-0">
             <!--one-->
@@ -99,7 +100,9 @@
             </div>
         </div>
 
-    </section>
+    </section>*/?>
+
+
     <!----featured-->
     <section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
@@ -127,8 +130,8 @@
             <?php } ?>
         </div>
     </section>
-    
-    <!---banner-->
+
+   <?php /* <!---banner-->
     <section id="banner" class="my-5 py-5">
         <div class="container">
             <h4>MId SEASON'S SALE</h4>
@@ -137,7 +140,7 @@
             </h1>
             <button class="text-uppercase">Shop Now</button>
         </div>
-    </section>
+    </section>*/?>
 
     <!---footer---->
 

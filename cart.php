@@ -5,6 +5,7 @@ if (isset($_POST['add_to_cart'])) {
     if (isset($_SESSION['cart'])) { // Use $_SESSION instead of $session
         $products_array_ids = array_column($_SESSION['cart'], 'product_id');
         if (!in_array($_POST['product_id'], $products_array_ids)) {
+            $product_id=$_POST['product_id'];
 
             $product_id = $_POST['product_id']; // Assign the product ID
             $product_name = $_POST['product_name'];
@@ -42,7 +43,16 @@ if (isset($_POST['add_to_cart'])) {
 
         $_SESSION['cart'][$product_id] = $product_array;
     }
-} else {
+} else if(isset($_POST['remove_product'])){
+    $product_id=$_POST['product_id'];
+    unset($_SESSION['cart'][$product_id]);
+
+
+
+
+
+
+}else {
     header('location:index.php');
 }
 
@@ -123,8 +133,13 @@ if (isset($_POST['add_to_cart'])) {
                     <p><?=$value['product_name'] ?></p>
                     <small><span>$</span><?= $value['product_price'];?></small>
                      <br>
-                     <a class="remove-btn" style="font-size: 1rem;
-                        font-weight: 600;" href="#" >Remove</a>
+                     <form method="Post" action="cart.php">
+                        <input type="hidden" name="product_id" value="<?= $value['product_id']?>">
+                     <input type="submit" name="remove_product" class="remove-btn" style="font-size: 1rem;
+                        font-weight: 600;" value="remove">
+
+                     </form>
+                    
                      </div>
                 </div>
             </td>
@@ -135,7 +150,7 @@ if (isset($_POST['add_to_cart'])) {
             </td>
             <td>
                 <span>$</span>
-                <span clas="Price">155</span>
+                <span class="price">155</span>
             </td>
             <?php } ?>
         </tr>
