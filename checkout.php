@@ -91,11 +91,11 @@ else{
                 </div>
                 <div class="form-group checkout-small-element">
                     <label>City</label>
-                    <input type="text" class="form-control" id="checkout-city" name="confirmpassword" placeholder="City" required>
+                    <input type="text" class="form-control" id="checkout-city" name="city" placeholder="City" required>
                 </div>
                 <div class="form-group checkout-large-element">
                     <label>Address</label>
-                    <input type="text" class="form-control" id="checkout-address" name="confirmpassword" placeholder="Address" required>
+                    <input type="text" class="form-control" id="checkout-address" name="address" placeholder="Address" required>
                 </div>
                 <div class="form-group checkout-btn-container">
                     <p>Total Amount : $<?= $_SESSION['total']; ?> </p>
