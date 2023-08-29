@@ -476,7 +476,9 @@ th:last-child{
     justify-content: flex-end;
     background-color: #fb774b;
     color: #fff;
+    width: auto;
 }
+
 
 /*login*/
 .login hr{

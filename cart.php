@@ -43,9 +43,18 @@ if (isset($_POST['add_to_cart'])) {
 
         $_SESSION['cart'][$product_id] = $product_array;
     }
+
+     calculateTotalcart();
+
+
+
+
+
 } else if(isset($_POST['remove_product'])){
     $product_id=$_POST['product_id'];
     unset($_SESSION['cart'][$product_id]);
+
+    calculateTotalcart();
 
 
 
@@ -60,10 +69,24 @@ if (isset($_POST['add_to_cart'])) {
     $_SESSION['cart'][$product_id]=$product_array;
 
 
-
+calculateTotalcart();
 
 }else {
     header('location:index.php');
+}
+
+
+
+
+function calculateTotalcart(){
+   $total=0;
+    foreach($_SESSION['cart'] as $key=>$value){
+        $product=$_SESSION['cart'][$key];
+        $price=$product['product_price'];
+        $quantity=$product['product_quantity'];
+        $total=$total+($price*$quantity);
+    }
+     $_SESSION['total']=$total;
 }
 
 ?>
@@ -165,26 +188,32 @@ if (isset($_POST['add_to_cart'])) {
             </td>
             <td>
                 <span>$</span>
-                <span class="price">155</span>
+                <span class="price"><?= $value['product_price']* $value['product_quantity'];?></span>
             </td>
             <?php } ?>
         </tr>
      </table>
      <div class="cart-total">
         <table>
-            <tr>
+            <!---<tr>
                 <td>Subtotal</td>
-                <td>$155</td>
-            </tr>
+                <td><?= $value['product_price']* $value['product_quantity'];?></td>
+            </tr>-->
             <tr>
-                <td>TOtal</td>
-                <td>$155</td>
+                <td>Total</td>
+                <td><?= $_SESSION['total'];?></td>
             </tr>
 
         </table>
      </div>
      <div class="checkout-container">
-        <button class="btn checkout-btn">Checkout</button>
+        <form method="POST" action="checkout.php">
+        <input class="btn checkout-btn" value="Checkout" name="Checkout">
+
+
+
+        </form>
+        
      </div>
  </section>
 
