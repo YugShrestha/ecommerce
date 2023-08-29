@@ -201,14 +201,14 @@ function calculateTotalcart(){
             </tr>-->
             <tr>
                 <td>Total</td>
-                <td><?= $_SESSION['total'];?></td>
+                <td><span>$</span><?= $_SESSION['total'];?></td>
             </tr>
 
         </table>
      </div>
      <div class="checkout-container">
         <form method="POST" action="checkout.php">
-        <input class="btn checkout-btn" value="Checkout" name="Checkout">
+        <input type= "submit" class="btn checkout-btn" value="Checkout" name="Checkout">
 
 
 

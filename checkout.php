@@ -1,3 +1,24 @@
+<?php 
+
+
+session_start();
+if(!empty($_SESSION['cart'] && isset($_POST['Checkout']))){
+
+
+}
+else{
+    header("location:index.php");
+}
+
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +34,7 @@
 
 <body>
      <!---nabvar-->
-     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
+     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top ">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,24 +43,24 @@
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link <?= $_SERVER['REQUEST_URI'] === 'index.php' ? 'active' : ''; ?> " aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link <?= $_SERVER['REQUEST_URI'] === 'shop.php' ? 'active' : ''; ?> " href="shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ContactUs</a>
+                        <a class="nav-link" href="contact.php">ContactUs</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-shopping-bag"></i>
-                        <i class="fas fa-user"></i>
+                        <a href="account.php"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mt-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -55,7 +76,7 @@
 
         </div>
         <div class="mx-auto container">
-            <form id="checkout-form">
+            <form id="checkout-form" method="POST" action="place_holder.php">
                 <div class="form-group checkout-small-element">
                     <label>name </label>
                     <input type="text" class="form-control" id="checkoutr-name" name="name" placeholder="Name" required>
@@ -77,8 +98,9 @@
                     <input type="text" class="form-control" id="checkout-address" name="confirmpassword" placeholder="Address" required>
                 </div>
                 <div class="form-group checkout-btn-container">
+                    <p>Total Amount : $<?= $_SESSION['total']; ?> </p>
                 
-                    <input type="submit" class="btn" id="checkout-btn" value="Checkout" >
+                    <input type="submit" class="btn" id="checkout-btn" name=place_holder value="PlaceOrder" >
                 </div>
                 
             </form>
