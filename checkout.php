@@ -76,7 +76,7 @@ else{
 
         </div>
         <div class="mx-auto container">
-            <form id="checkout-form" method="POST" action="place_holder.php">
+            <form id="checkout-form" method="POST" action="server/place_holder.php">
                 <div class="form-group checkout-small-element">
                     <label>name </label>
                     <input type="text" class="form-control" id="checkoutr-name" name="name" placeholder="Name" required>
@@ -100,7 +100,7 @@ else{
                 <div class="form-group checkout-btn-container">
                     <p>Total Amount : $<?= $_SESSION['total']; ?> </p>
                 
-                    <input type="submit" class="btn" id="checkout-btn" name=place_holder value="PlaceOrder" >
+                    <input type="submit" class="btn" id="checkout-btn" name=place_order value="PlaceOrder" >
                 </div>
                 
             </form>
