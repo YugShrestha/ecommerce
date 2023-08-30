@@ -54,7 +54,7 @@
             <h3>Contact Us</h3>
             <hr class="mx-auto">
             <p class= "w-50 mx-auto">
-            Phone Number: <span>+977 9810281307</span>
+            Phone Number: <span>+977 </span>
             </p>
             <p class= "w-50 mx-auto">
             Email address:<span> yug@gmail.com</span>
