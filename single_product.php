@@ -148,7 +148,7 @@ if (isset($_GET['product_id'])) {
                     </div>
                     <div>
                         <h6 class="text-uppercase">Phone</h6>
-                        <p>9810281307</p>
+                        <p></p>
                     </div>
                     <div>
                         <h6 class="text-uppercase">Email</h6>
