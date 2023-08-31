@@ -1,47 +1,53 @@
 <?php
-include("server/connection.php");
-
+session_start(); // Don't forget to start the session
+include('server/connection.php');
 
 if (isset($_POST['register'])) {
-
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $confimPassword = $_POST['confirmPassword'];
+    $confirmPassword = $_POST['confirmPassword'];
 
-   //if password doesnot match
-    if ($password !== $confimPassword) {
-        header("location:register.php?error=password dont match");
+    if ($password !== $confirmPassword) {
+        header("Location: register.php?error=passwords don't match");
+        exit(); // Terminate script after redirect
+    } else if (strlen($password) < 6) {
+        header("Location: register.php?error=password must be at least 6 characters long");
+        exit(); // Terminate script after redirect
+    } else {
+        
+
+        // Check if user already exists with this email
+        $stmt = $conn->prepare("SELECT count(*) FROM users WHERE user_email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->bind_result($num_rows);
+        $stmt->fetch();
+        $stmt->close();
+
+        if ($num_rows != 0) {
+            header("Location: register.php?error=user with this email already exists");
+            exit(); // Terminate script after redirect
+        } else {
+            // Create a new user
+            $stmt = $conn->prepare("INSERT INTO users (user_name, user_email, user_password) VALUES (?, ?, ?)");
+            $hashedPassword = md5($password); // Consider using a more secure hashing method like bcrypt
+            $stmt->bind_param("sss", $name, $email, $hashedPassword);
+            if ($stmt->execute()) {
+                $_SESSION['user_email'] = $email;
+                $_SESSION['user_name'] = $name;
+                $_SESSION['logged_in'] = true;
+                header("Location: account.php?register=you have registered successfully");
+                exit(); // Terminate script after redirect
+            } else {
+                header("Location: register.php?error=couldn't create an account");
+                exit(); // Terminate script after redirect
+            }
+        }
     }
-    // if passsowd is less than 6 digits
-    if (strlen($password < 6)) {
-        header("location:register.php?error=password must be atleast 6 charetcters long");
-    
-    }
-    //check wheather there is a user with this email or not 
-    $stmt=$conn->prepare("SELECT count(*) FROM users WHERE user_email=?");
-    $stmt->bind_param("s",$email );
-    $stmt->execute();
-    $stmt->bind_result($num_rows);
-    $stmt->fetch();
-    if($num_rows!=0){
-        header("location:register.php?error=user this email alredy existed")
-    }
-    
-
-
-
-    //create a new user
-   $stmt=$conn->prepare("INSERT INTO users(user_name,user_email,user_password) values(?,?,?)");
-   $stmt->bind_param("sss",$name,$email,md5($password));
-   
-
-
-
-} else
-
-
+} 
 ?>
+
 
 
 
