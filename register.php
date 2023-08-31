@@ -1,4 +1,53 @@
-!DOCTYPE html>
+<?php
+include("server/connection.php");
+
+
+if (isset($_POST['register'])) {
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confimPassword = $_POST['confirmPassword'];
+
+   //if password doesnot match
+    if ($password !== $confimPassword) {
+        header("location:register.php?error=password dont match");
+    }
+    // if passsowd is less than 6 digits
+    if (strlen($password < 6)) {
+        header("location:register.php?error=password must be atleast 6 charetcters long");
+    
+    }
+    //check wheather there is a user with this email or not 
+    $stmt=$conn->prepare("SELECT count(*) FROM users WHERE user_email=?");
+    $stmt->bind_param("s",$email );
+    $stmt->execute();
+    $stmt->bind_result($num_rows);
+    $stmt->fetch();
+    if($num_rows!=0){
+        header("location:register.php?error=user this email alredy existed")
+    }
+    
+
+
+
+    //create a new user
+   $stmt=$conn->prepare("INSERT INTO users(user_name,user_email,user_password) values(?,?,?)");
+   $stmt->bind_param("sss",$name,$email,md5($password));
+   
+
+
+
+} else
+
+
+?>
+
+
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,8 +61,8 @@
 </head>
 
 <body>
-     <!---nabvar-->
-     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
+    <!---nabvar-->
+    <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
         <div class="container">
             <img src="asset/img.logo.jpg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,106 +97,100 @@
 
     <!----Registe--->
     <div class="login">
-    <section class="my-5 py-5">
-        <div class="container text-center mt-3 pt-5">
-            <h2 style="color:coral"class="form-weight-bold">Register</h2>
-            <hr class ="mx-auto">
+        <section class="my-5 py-5">
+            <div class="container text-center mt-3 pt-5">
+                <h2 style="color:coral" class="form-weight-bold">Register</h2>
+                <hr class="mx-auto">
             </div>
 
-        </div>
-        <div class="mx-auto container">
-            <form id="register-form">
-                <div class="form-group">
-                    <label>name </label>
-                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required>
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="register-confirm-password" name="confirmpassword" placeholder="Confirm Password" required>
-                </div>
-                <div class="form-group">
-                
-                    <input type="submit" class="btn" id="register-btn" value="Register" >
-                </div>
-                <div class="form-group">
-                
-                    <a id="login-url" class="btn">Do you have an account? Login </a>
-                </div>
-            </form>
-        </div>
+    </div>
+    <div class="mx-auto container">
+        <form id="register-form" method="POST" action="register.php">
+            <p style="color:red"><?php if(isset($_GET['error'])) {echo $_GET['error'];} ?></p>
+            <div class="form-group">
+                <label>name </label>
+                <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" id="register-email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <div class="form-group">
+
+                <input type="submit" class="btn" id="register-btn" name="register" value="Register">
+            </div>
+            <div class="form-group">
+
+                <a id="login-url" class="btn">Do you have an account? Login </a>
+            </div>
+        </form>
+    </div>
     </section>
 
 
-    
-<!---footer---->
 
-<footer class="mt-5 py-5">
-    <div class="row container mx-auto pt-5">
+    <!---footer---->
 
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <img class="logo" src="img/ ">
-            <p class="pt-3">we provide the best product for the most Affordable price</p>
-        </div>
+    <footer class="mt-5 py-5">
+        <div class="row container mx-auto pt-5">
 
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <h5 class="pb-2">Contact Us</h5>
-            <div>
-                <h6 class="text-uppercase">Address</h6>
-                <p>Boudha, Kathmandu</p>
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <img class="logo" src="img/ ">
+                <p class="pt-3">we provide the best product for the most Affordable price</p>
             </div>
-            <div>
-                <h6 class="text-uppercase">Phone</h6>
-                <p></p>
+
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <h5 class="pb-2">Contact Us</h5>
+                <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>Boudha, Kathmandu</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p></p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>yug.shrestha1@gmail.com</p>
+                    <hr>
+                </div>
             </div>
-            <div>
-                <h6 class="text-uppercase">Email</h6>
-                <p>yug.shrestha1@gmail.com</p><hr>
+
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                    <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <div class=" row container mx-auto">
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <img src="img/">
+                </div>
+                <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
+                    <p>Ecommerce@ 2023 All Right Reserved</p>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
         </div>
-
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <h5 class="pb-2">Instagram</h5>
-            <div class="row">
-                <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
-            </div>
-        </div>
-
-    </div>
-    <div class="copyright">
-    <div class=" row container mx-auto">
-        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-            <img src="img/">
-        </div>
-        <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
-            <p>Ecommerce@ 2023 All Right Reserved</p>
-        </div>
-        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        </div>
-    </div>
-</footer>
-                
-
-
-
-
-
-
-    
+    </footer>
 
 
 
@@ -173,7 +216,15 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>
