@@ -1,4 +1,7 @@
+<?php
+session_start();
 
+?>
 
 
 <!DOCTYPE html>
@@ -55,9 +58,14 @@
             <h2 style="color:coral"class="form-weight-bold">Payment</h2>
             <hr class ="mx-auto">
             </div>
+            <div class="mx-auto container text-center">
+            <p><?= $_GET['order_status']; ?></p>
+            <p>Total Amount :<?= $_SESSION['total'];?></p>
+            <input class="btn btn-primary" type= "submit" value="Paynow">
+
 
         </div>
-        <div class="mx-auto container">
+        
             
         </div>
     </section>
