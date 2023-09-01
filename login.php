@@ -1,4 +1,25 @@
-!DOCTYPE html>
+<?php
+session_start();
+include("server/connection.php");
+
+if(isset($_POST['login-btn'])){
+    $email=$_POST['email'];
+    $password=md5($_POST['password']);
+
+    $stmt=$conn->prepare("SELECT * user_id, user_email,user_password FROM users WHERE user_email=? AND user_password=? LIMIT 1");
+    $stmt->bind_param("ss",$email,$password);
+   
+
+
+}
+
+
+?>
+
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -57,7 +78,9 @@
         </div>
         <div class="mx-auto container">
             <form id="login-form">
+            
                 <div class="form-group">
+                   
                     <label>Email</label>
                     <input type="text" class="form-control" id="login-email" name="email" placeholder="Email" required>
                 </div>
@@ -65,10 +88,7 @@
                     <label>Password</label>
                     <input type="password" class="form-control" id="login-email" name="password" placeholder="Password" required>
                 </div>
-                <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" class="form-control" id="login-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
-                </div>
+                
                 <div class="form-group">
                 
                     <input type="submit" class="btn" id="login-btn" value="login" >

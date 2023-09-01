@@ -46,7 +46,7 @@ if (isset($_POST['register'])) {
         }
     }
 } elseif(isset($_SESSION['logged_in'])){
-    header('location:account.php');
+    //header('location:account.php');
 
 }
 ?>
