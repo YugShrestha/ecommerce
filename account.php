@@ -1,4 +1,17 @@
-!DOCTYPE html>
+<?php 
+
+session_start();
+if(!isset($_SESSION['logged_in'])){
+    header("location: login.php");
+    exit;
+}
+
+
+?>
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -54,8 +67,8 @@
                 <h3 class="font-weight-bold">Account Info</h3>
                 <hr class="mx-auto">
                 <div class="account-info">
-                    <p>Name<span>Yug</span></p>
-                    <p>Email<span>Yug@gmail.com</span></p>
+                    <p>Name: <span><?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}?></span></p>
+                    <p>Email: <span><?php if(isset($_SESSION['user_email'])){echo $_SESSION['user_email'];}?></span></p>
                     <p><a href="" id="order-btn">Your Order</a></p>
                     <p><a href="" id="logout-btn">Logout</a></p>
 

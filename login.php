@@ -2,6 +2,11 @@
 session_start();
 include("server/connection.php");
 
+if(isset($_SESSION['logged_in'])){
+    header("location: account.php");
+    exit;
+}
+
 if(isset($_POST['login_btn'])){
     $email=$_POST['email'];
     $password=md5($_POST['password']);
@@ -14,7 +19,7 @@ if(isset($_POST['login_btn'])){
           $stmt->bind_result($user_id,$user_name,$user_email,$user_password);
           $stmt->store_result();
 
-          if($stmt->num_rows==1){
+          if($stmt->num_rows() ==1){
               $row=$stmt->fetch();
               $_SESSION['user_id']=$user_id;
               $_SESSION['user_name']=$user_name;
