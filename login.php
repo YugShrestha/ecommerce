@@ -1,4 +1,52 @@
-!DOCTYPE html>
+<?php
+session_start();
+include("server/connection.php");
+
+if(isset($_POST['login_btn'])){
+    $email=$_POST['email'];
+    $password=md5($_POST['password']);
+
+    $stmt=$conn->prepare("SELECT  user_id, user_name,user_email,user_password FROM users WHERE user_email=? AND user_password=? LIMIT 1");
+    $stmt->bind_param("ss",$email,$password);
+    
+    
+    if($stmt->execute()){
+          $stmt->bind_result($user_id,$user_name,$user_email,$user_password);
+          $stmt->store_result();
+
+          if($stmt->num_rows==1){
+              $row=$stmt->fetch();
+              $_SESSION['user_id']=$user_id;
+              $_SESSION['user_name']=$user_name;
+              $_SESSION['user_email']=$user_email;
+              $_SESSION['logged_in']=true;
+              header('location:account.php?message=logged in sucessfully');
+
+          }else{
+            header("location: login.php?error=could not verify you account ");
+          } 
+    
+    
+    
+    
+    }else{
+        header("location: login.php?error=something went wrong");
+        
+    }
+
+ 
+   
+
+
+}
+
+
+?>
+
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -56,22 +104,22 @@
 
         </div>
         <div class="mx-auto container">
-            <form id="login-form">
+            <form id="login-form" method="POST" action="login.php">
+            <p style="color:red" class="text-center"><?php if(isset($_GET['error'])) {echo $_GET['error'];} ?></p>
+            
                 <div class="form-group">
+                   
                     <label>Email</label>
                     <input type="text" class="form-control" id="login-email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="login-email" name="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="login-password" name="password" placeholder="Password" required>
                 </div>
-                <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" class="form-control" id="login-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
-                </div>
+                
                 <div class="form-group">
                 
-                    <input type="submit" class="btn" id="login-btn" value="login" >
+                    <input type="submit" class="btn" id="login-btn" name ="login_btn" value="login" >
                 </div>
                 <div class="form-group">
                 
