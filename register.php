@@ -45,7 +45,10 @@ if (isset($_POST['register'])) {
             }
         }
     }
-} 
+} elseif(isset($_SESSION['logged_in'])){
+    header('location:account.php');
+
+}
 ?>
 
 
@@ -135,7 +138,7 @@ if (isset($_POST['register'])) {
             </div>
             <div class="form-group">
 
-                <a id="login-url" class="btn">Do you have an account? Login </a>
+                <a id="login-url" class="btn" href="login.php">Do you have an account? Login </a>
             </div>
         </form>
     </div>
