@@ -636,9 +636,10 @@ th:last-child{
     border-collapse: collapse;
 }
 #orders table th,
-#ordestable td {
+#ordes table td {
     padding: 12px;
     text-align: left;
+    color:white;
 }
 
 #orders table .product-info {

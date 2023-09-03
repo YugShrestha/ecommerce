@@ -40,6 +40,15 @@ if (isset($_POST['changePassword'])) {
         }
     }
 }
+
+if(isset($_SESSION['logged_in'])){
+    $user_id=$_SESSION['user_id'];
+    $stmt=$conn->prepare("SELECT * FROM orders WHERE user_id=?");
+    $stmt->bind_param("i",$user_id);
+    $stmt->execute();
+    $orders=$stmt->get_result();
+
+}
 ?>
 
 
@@ -144,24 +153,30 @@ if (isset($_POST['changePassword'])) {
         </div>
         <table class="mt-5 py-5">
             <tr>
-                <th style="color:white">Product</th>
-                <th style="color:white ;
-                 text-align: end">Date</th>
+                <th>order ID</th>
+                
+                 <th >Order Cost </th>
+                 <th >Order Status</th>
+                 <th >Order Date</th>
             </tr>
+            <?php while($row=$orders->fetch_assoc()){ ?>
             <tr>
                 <td>
                     <div class="product-info">
-                        <img src="img/featured1.jpg">
+                       <!-- <img src="img/featured1.jpg">-->
 
                     <div>
-                    <p class="mt-3">Fender</p>
+                    <p class="mt-3"><?php echo $row['order_id']?></p>
                     </div>
                     </div>
                 </td>
                 <td>
-                    <span>2036-5-8</span>
+                    <span><?= $row['order_cost'];?>
+                </span>
+
                 </td>
             </tr>
+            <?php } ?>
             
         </table>
     </section>
