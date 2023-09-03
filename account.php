@@ -21,7 +21,7 @@ if (isset($_GET['logout'])) {
 if (isset($_POST['changePassword'])) {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
-    $userEmail=$_SESSION['user_email'];
+    $userEmail = $_SESSION['user_email'];
 
     if ($password !== $confirmPassword) {
         header("Location: account.php?error=passwords don't match");
@@ -31,16 +31,13 @@ if (isset($_POST['changePassword'])) {
         exit(); // Terminate script after redirect
 
     } else {
-        $stmt=$conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
-        $stmt->bind_param("ss",md5($password),$userEmail);
-        if($stmt->execute()){
+        $stmt = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
+        $stmt->bind_param("ss", md5($password), $userEmail);
+        if ($stmt->execute()) {
             header("location:account.php?message=password has been updated sucessfully");
-        }
-        else{
+        } else {
             header("location:account.php?message=could not change passowrd");
-                    }
-
-
+        }
     }
 }
 ?>
@@ -117,8 +114,8 @@ if (isset($_POST['changePassword'])) {
 
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <form id="account-form" method="POST" action="account.php">
-                    <p class= text-center style="color:red"><?= isset($_GET['error']) ?   $_GET['error']:"" ?></p>
-                    <p class= text-center style="color:green"><?= isset($_GET['message']) ?  $_GET['message']:"" ?></p>
+                    <p class=text-center style="color:red"><?= isset($_GET['error']) ?   $_GET['error'] : "" ?></p>
+                    <p class=text-center style="color:green"><?= isset($_GET['message']) ?  $_GET['message'] : "" ?></p>
                     <h3>Change Password</h3>
                     <hr class="mx-auto">
                     <div class="form-group">
@@ -136,6 +133,37 @@ if (isset($_POST['changePassword'])) {
                 </form>
             </div>
         </div>
+    </section>
+
+
+    <!---orders-->
+    <section id="orders" class="orders container my-5 py-5">
+        <div class="container mt-2">
+            <h2 class="font-weight-bold text-center">Your Orders</h2>
+            <hr class="mx-auto">
+        </div>
+        <table class="mt-5 py-5">
+            <tr>
+                <th style="color:white">Product</th>
+                <th style="color:white ;
+                 text-align: end">Date</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="product-info">
+                        <img src="img/featured1.jpg">
+
+                    <div>
+                    <p class="mt-3">Fender</p>
+                    </div>
+                    </div>
+                </td>
+                <td>
+                    <span>2036-5-8</span>
+                </td>
+            </tr>
+            
+        </table>
     </section>
 
     <!---footer---->
