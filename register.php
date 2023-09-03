@@ -34,6 +34,8 @@ if (isset($_POST['register'])) {
             $hashedPassword = md5($password); // Consider using a more secure hashing method like bcrypt
             $stmt->bind_param("sss", $name, $email, $hashedPassword);
             if ($stmt->execute()) {
+                $user_id=$stmt->insert_id;
+                $_SESSION['user_id']=$user_id;
                 $_SESSION['user_email'] = $email;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['logged_in'] = true;
