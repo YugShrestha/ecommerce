@@ -1,19 +1,44 @@
-<?php 
+<?php
 
 session_start();
-if(!isset($_SESSION['logged_in'])){
+include("server/connection.php");
+if (!isset($_SESSION['logged_in'])) {
     header("location: login.php");
     exit;
 }
 
-if(isset($_GET['logout'])){
-    if(isset($_SESSION['logged_in'])){
+if (isset($_GET['logout'])) {
+    if (isset($_SESSION['logged_in'])) {
         unset($_SESSION['logged_in']);
-        unset ($_SESSION['user_email']);
+        unset($_SESSION['user_email']);
         unset($_SESSION['user_name']);
 
         header("location: login.php");
         exit;
+    }
+}
+
+if (isset($_POST['changePassword'])) {
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+    $userEmail=$_SESSION['user_email'];
+
+    if ($password !== $confirmPassword) {
+        header("Location: account.php?error=passwords don't match");
+        exit(); // Terminate script after redirect
+    } else if (strlen($password) < 6) {
+        header("Location: account.php?error=password must be at least 6 characters long");
+        exit(); // Terminate script after redirect
+
+    } else {
+        $stmt=$conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
+        $stmt->bind_param("ss",md5($password),$userEmail);
+        if($stmt->execute()){
+            header("location:account.php?message=password has been updated sucessfully");
+        }
+        else{
+            header("location:account.php?message=could not change passowrd");
+                    }
 
 
     }
@@ -36,7 +61,7 @@ if(isset($_GET['logout'])){
 </head>
 
 <body>
-      <!---nabvar-->
+    <!---nabvar-->
     <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white fixed-top">
         <div class="container">
             <img src="asset/img.logo.jpg">
@@ -72,96 +97,103 @@ if(isset($_GET['logout'])){
 
 
     <!----Account--->
-     <section class= "my-5 py-5">
+    <section class="my-5 py-5">
         <div class="row container mx-auto">
             <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
                 <h3 class="font-weight-bold">Account Info</h3>
                 <hr class="mx-auto">
                 <div class="account-info">
-                    <p>Name: <span><?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}?></span></p>
-                    <p>Email: <span><?php if(isset($_SESSION['user_email'])){echo $_SESSION['user_email'];}?></span></p>
+                    <p>Name: <span><?php if (isset($_SESSION['user_name'])) {
+                                        echo $_SESSION['user_name'];
+                                    } ?></span></p>
+                    <p>Email: <span><?php if (isset($_SESSION['user_email'])) {
+                                        echo $_SESSION['user_email'];
+                                    } ?></span></p>
                     <p><a href="" id="order-btn">Your Order</a></p>
-                    <p><a href="account.php?logout=1" id="logout-btn">Logout</a></p>
+                    <p><a href="account.php?logout" id="logout-btn">Logout</a></p>
 
                 </div>
             </div>
-        
-        <div class="col-lg-6 col-md-12 col-sm-12">
-            <form id="account-form">
-                <h3>Change Password</h3>
-                <hr class="mx-auto">
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="account-password" name="password" placeholder="Password">
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <form id="account-form" method="POST" action="account.php">
+                    <p class= text-center style="color:red"><?= isset($_GET['error']) ?   $_GET['error']:"" ?></p>
+                    <p class= text-center style="color:green"><?= isset($_GET['message']) ?  $_GET['message']:"" ?></p>
+                    <h3>Change Password</h3>
+                    <hr class="mx-auto">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="account-password" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" id="Confirmpassword" name="confirmPassword" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="change password" name="changePassword" class="btn" id="change-pass-btn">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!---footer---->
+
+    <footer class="mt-5 py-5">
+        <div class="row container mx-auto pt-5">
+
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <img class="logo" src="img/ ">
+                <p class="pt-3">we provide the best product for the most Affordable price</p>
+            </div>
+
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <h5 class="pb-2">Contact Us</h5>
+                <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>Boudha, Kathmandu</p>
                 </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="Confirmpassword" name="password" placeholder="Password">
+                <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p></p>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="change password" class="btn" id="change-pass-btn">
+                <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>yug.shrestha1@gmail.com</p>
+                    <hr>
                 </div>
-
-            </form>
-        </div>
-        </div>
-     </section>
-    
-<!---footer---->
-
-<footer class="mt-5 py-5">
-    <div class="row container mx-auto pt-5">
-
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <img class="logo" src="img/ ">
-            <p class="pt-3">we provide the best product for the most Affordable price</p>
-        </div>
-
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <h5 class="pb-2">Contact Us</h5>
-            <div>
-                <h6 class="text-uppercase">Address</h6>
-                <p>Boudha, Kathmandu</p>
             </div>
-            <div>
-                <h6 class="text-uppercase">Phone</h6>
-                <p></p>
+
+            <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+                <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                    <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
+                    <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
+                </div>
             </div>
-            <div>
-                <h6 class="text-uppercase">Email</h6>
-                <p>yug.shrestha1@gmail.com</p><hr>
+
+        </div>
+        <div class="copyright">
+            <div class=" row container mx-auto">
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <img src="img/">
+                </div>
+                <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
+                    <p>Ecommerce@ 2023 All Right Reserved</p>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <h5 class="pb-2">Instagram</h5>
-            <div class="row">
-                <img src="img/featured1.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured2.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured3.jpg" class="img-fluid w-25 h-100 m-2">
-                <img src="img/featured4.jpg" class="img-fluid w-25 h-100 m-2">
-            </div>
-        </div>
-
-    </div>
-    <div class="copyright">
-    <div class=" row container mx-auto">
-        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-            <img src="img/">
-        </div>
-        <div class=" col-lg-3 col-md-5 col-sm-12 text-nowrap mb-2">
-            <p>Ecommerce@ 2023 All Right Reserved</p>
-        </div>
-        <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        </div>
-    </div>
-</footer>
-                
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>
