@@ -1,62 +1,13 @@
-<?php
-session_start(); // Don't forget to start the session
-include('server/connection.php');
+<?php 
+include("server/connection.php");
 
-if (isset($_POST['register'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmPassword'];
 
-    if ($password !== $confirmPassword) {
-        header("Location: register.php?error=passwords don't match");
-        exit(); // Terminate script after redirect
-    } else if (strlen($password) < 6) {
-        header("Location: register.php?error=password must be at least 6 characters long");
-        exit(); // Terminate script after redirect
-    } else {
-        
 
-        // Check if user already exists with this email
-        $stmt = $conn->prepare("SELECT count(*) FROM users WHERE user_email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($num_rows);
-        $stmt->fetch();
-        $stmt->close();
 
-        if ($num_rows != 0) {
-            header("Location: register.php?error=user with this email already exists");
-            exit(); // Terminate script after redirect
-        } else {
-            // Create a new user
-            $stmt = $conn->prepare("INSERT INTO users (user_name, user_email, user_password) VALUES (?, ?, ?)");
-            $hashedPassword = md5($password); // Consider using a more secure hashing method like bcrypt
-            $stmt->bind_param("sss", $name, $email, $hashedPassword);
-            if ($stmt->execute()) {
-                $user_id=$stmt->insert_id;
-                $_SESSION['user_id']=$user_id;
-                $_SESSION['user_email'] = $email;
-                $_SESSION['user_name'] = $name;
-                $_SESSION['logged_in'] = true;
-                header("Location: account.php?register=you have registered successfully");
-                exit(); // Terminate script after redirect
-            } else {
-                header("Location: register.php?error=couldn't create an account");
-                exit(); // Terminate script after redirect
-            }
-        }
-    }
-} elseif(isset($_SESSION['logged_in'])){
-    //header('location:account.php');
 
-}
+
+
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,71 +33,79 @@ if (isset($_POST['register'])) {
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ContactUs</a>
+                        <a class="nav-link" href="contact.php">ContactUs</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-shopping-bag"></i>
-                        <i class="fas fa-user"></i>
+                        <a href="account.php"><i class="fas fa-user"></i></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mt-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <!----Registe--->
-    <div class="login">
-        <section class="my-5 py-5">
-            <div class="container text-center mt-3 pt-5">
-                <h2 style="color:coral" class="form-weight-bold">Register</h2>
-                <hr class="mx-auto">
-            </div>
 
-    </div>
-    <div class="mx-auto container">
-        <form id="register-form" method="POST" action="register.php">
-            <p style="color:red"><?php if(isset($_GET['error'])) {echo $_GET['error'];} ?></p>
-            <div class="form-group">
-                <label>Name </label>
-                <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" class="form-control" id="register-email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
-            </div>
-            <div class="form-group">
+    
+    <!---orders-->
+    <section id="orders" class="orders container my-5 py-5">
+        <div class="container mt-5">
+            <h2 class="font-weight-bold text-center">Orders Details</h2>
+            <hr class="mx-auto">
+        </div>
+        <table class="mt-5 py-5">
+            <tr>
+               
+                
+                 <th >Product </th>
+                 <th >Price</th>
+                 <th >Quantity</th>
+                 
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="product-info">
+                        <img src=img/featured1.jpg>
+                        <div>
+                        <p class="mt-3"></p>
+                        </div>
+                    </div>
+                </td>
+                <td> <span></span></td>
+                <td>
+                    <span>
+                </span>
 
-                <input type="submit" class="btn" id="register-btn" name="register" value="Register">
-            </div>
-            <div class="form-group">
+                </td>
+                <td>
+                    <span>
+                </span>
 
-                <a id="login-url" class="btn" href="login.php">Do you have an account? Login </a>
-            </div>
-        </form>
-    </div>
+                </td>
+                
+                <td>
+                    <form>
+                        <input class="btn order-details-btn" type="submit" value="details">
+                    </form>
+                </td>
+            </tr>
+           
+            
+        </table>
     </section>
-
-
 
     <!---footer---->
 
@@ -202,38 +161,6 @@ if (isset($_POST['register'])) {
             </div>
         </div>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
