@@ -133,7 +133,7 @@ if(isset($_SESSION['logged_in'])){
                     </div>
                     <div class="form-group">
                         <label>Confirm Password</label>
-                        <input type="password" class="form-control" id="Confirmpassword" name="confirmPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="Confirmpassword" name="confirmPassword" placeholder="Confirm Password">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="change password" name="changePassword" class="btn" id="change-pass-btn">
@@ -185,8 +185,8 @@ if(isset($_SESSION['logged_in'])){
 
                 </td>
                 <td>
-                    <form>
-                        <input class="btn order-details-btn" type="submit" value="details">
+                    <form method="GET" action="product_details" >
+                        <input class="btn order-details-btn" name= "order_details_btn" type="submit" value="details">
                     </form>
                 </td>
             </tr>

@@ -659,3 +659,8 @@ th:last-child{
     color:white;
     background-color: coral;
 }
+
+#orders table .product-info img {
+    max-width: 60px;
+    margin-right: 15px;
+}
