@@ -647,7 +647,15 @@ th:last-child{
     align-items: center;
 }
 
-.orders table .product-info img {
+#orders table .product-info img {
     max-width: 60px;
     margin-right: 15px;
+}
+
+#orders td{
+    padding: 10px 20px;
+}
+#orders .order-details-btn{
+    color:white;
+    background-color: coral;
 }
