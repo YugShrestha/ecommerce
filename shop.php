@@ -1,3 +1,30 @@
+<?php 
+
+include("server/connection.php");
+
+
+$stmt=$conn->prepare("SELECT * FROM products");
+ $stmt->execute();
+
+
+$allProducts=$stmt->get_result();
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,74 +79,19 @@
             <p>Here you can check out our featured products</p>
         </div>
         <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured1.jpg">
-                <h5 class="p-name" style="color: black;">Fender</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
+        <?php while($row=$allProducts->fetch_assoc()){ ?>
+
+
             
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured2.jpg">
-
                
-                <h5 class="p-name" style="color: black;">Les Paul</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
+                <img class="img-fluid mb-3" src="img/<?= $row['product_image'];?>">
+                <h5 class="p-name" style="color: black;"><?= $row['product_name']?></h5>
+                <h4 class="p-price"><span><?= $row['product_price'];?></span></h4>
+                <a href="single_product.php?product_id=<?= $row['product_id']; ?>" ><button class="but-btn"><span>Buy Now</span></button></a>
             </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured3.jpg">
-
-                <h5 class="p-name" style="color: black;">Ibanaz</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured4.jpg">
-                <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured1.jpg">
-                <h5 class="p-name" style="color: black;">Fender</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
+            <?php } ?>
             
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured2.jpg">
-
-               
-                <h5 class="p-name" style="color: black;">Les Paul</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-sm-3">
-                <img class="img-fluid mb-3" src="img/featured3.jpg">
-
-                <h5 class="p-name" style="color: black;">Ibanaz</h5>
-                <h4 class="p-price">$199.8</h4> 
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
-
-
-
-            <div class="product text-center col-lg-3 col=md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="img/featured4.jpg">
-
-                
-                <h5 class="p-name" style="color: black;">Yamaha Pacifica</h5>
-                <h4 class="p-price">$199.8</h4>
-                <button class="but-btn"><span>Buy Now</span></button>
-            </div>
             
             <nav aria-label=" page navigation exampler">
                 <ul class="pagination mt-5">

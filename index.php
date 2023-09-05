@@ -126,7 +126,7 @@
                     </div>
                     <h5 class="p-name"><span><?= $row['product_name']; ?></span></h5>
                     <h4 class="p-price">$<?= $row['product_price']; ?></h4>
-                    <a href="<?= "single_product.php?product_id=" . $row['product_id']; ?>"><button class="but-btn"><span>Buy Now</span></button></a>
+                    <a href="<?= "single_product.php?product_id=" . $row['product_id']; ?>"><button class="buy-btn"><span>Buy Now</span></button></a>
                 </div>
             <?php } ?>
         </div>
