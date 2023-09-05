@@ -1,6 +1,19 @@
 <?php 
 include("server/connection.php");
 
+if(isset($_GET['order_details_btn']) && isset($_GET['order_id'])){
+     $order_id=$_GET['order_id'];
+     $stmt=$conn->prepare("SELECT * FROM order_items WHERE order_id=?");
+     $stmt->bind_param('i',$order_id);
+     $stmt->execute();
+     $order_details=$stmt->get_result();
+
+
+}else{
+    header("location:account.php");
+    exit;
+}
+
 
 
 
@@ -74,27 +87,24 @@ include("server/connection.php");
                  <th >Quantity</th>
                  
             </tr>
+            <?php while($row=$order_details->fetch_assoc()){ ?>
             
             <tr>
                 <td>
                     <div class="product-info">
-                        <img src=img/featured1.jpg>
+                        <img src=img/<?= $row['product_image'];?>>
                         <div>
-                        <p class="mt-3"></p>
-                        </div>
+                        <p class="mt-3"><?= $row['product_name']?>
+                                          </div></p>
                     </div>
                 </td>
-                <td> <span></span></td>
+                <td> <span><?= $row['product_price']?></span></td>
                 <td>
-                    <span>
+                    <span><?= $row['product_quantity']?>
                 </span>
 
                 </td>
-                <td>
-                    <span>
-                </span>
-
-                </td>
+               
                 
                 <td>
                     <form>
@@ -102,7 +112,7 @@ include("server/connection.php");
                     </form>
                 </td>
             </tr>
-           
+           <?php } ?>
             
         </table>
     </section>
