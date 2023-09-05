@@ -38,7 +38,7 @@ if(isset($_POST['place_order'])){
                 $stmt1->execute();
 
         }
-      header('location:../payment.php?order_status="order placed sucessfully."');
+      header('location:../payment.php?order_status=order placed sucessfully.');
 
 
 }
