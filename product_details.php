@@ -1,8 +1,8 @@
 <?php 
 include("server/connection.php");
 
-if(isset($_GET['order_details_btn']) && isset($_GET['order_id'])){
-     $order_id=$_GET['order_id'];
+if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
+     $order_id=$_POST['order_id'];
      $stmt=$conn->prepare("SELECT * FROM order_items WHERE order_id=?");
      $stmt->bind_param('i',$order_id);
      $stmt->execute();
@@ -78,7 +78,7 @@ if(isset($_GET['order_details_btn']) && isset($_GET['order_id'])){
             <h2 class="font-weight-bold text-center">Orders Details</h2>
             <hr class="mx-auto">
         </div>
-        <table class="mt-5 py-5">
+        <table class="mt-5 py-5 mx-auto">
             <tr>
                
                 
@@ -98,7 +98,7 @@ if(isset($_GET['order_details_btn']) && isset($_GET['order_id'])){
                                           </div></p>
                     </div>
                 </td>
-                <td> <span><?= $row['product_price']?></span></td>
+                <td> <span>$<?= $row['product_price']?></span></td>
                 <td>
                     <span><?= $row['product_quantity']?>
                 </span>
@@ -106,11 +106,6 @@ if(isset($_GET['order_details_btn']) && isset($_GET['order_id'])){
                 </td>
                
                 
-                <td>
-                    <form>
-                        <input class="btn order-details-btn" type="submit" value="details">
-                    </form>
-                </td>
             </tr>
            <?php } ?>
             
