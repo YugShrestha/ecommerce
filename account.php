@@ -115,7 +115,7 @@ if(isset($_SESSION['logged_in'])){
                     <p>Email: <span><?php if (isset($_SESSION['user_email'])) {
                                         echo $_SESSION['user_email'];
                                     } ?></span></p>
-                    <p><a href="" id="order-btn">Your Order</a></p>
+                    <p><a href="#" id="order-btn">Your Order</a></p>
                     <p><a href="account.php?logout" id="logout-btn">Logout</a></p>
 
                 </div>
@@ -185,7 +185,8 @@ if(isset($_SESSION['logged_in'])){
 
                 </td>
                 <td>
-                    <form method="GET" action="product_details" >
+                    <form method="GET" action="product_details.php" >
+                        <input type="hidden" value="<?php echo $row['order_id']?>" name="order_id">
                         <input class="btn order-details-btn" name= "order_details_btn" type="submit" value="details">
                     </form>
                 </td>
