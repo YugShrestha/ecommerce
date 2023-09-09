@@ -75,16 +75,16 @@ if(isset($_POST['login_btn'])){
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ContactUs</a>
+                        <a class="nav-link" href="contact.php">ContactUs</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-shopping-bag"></i>
