@@ -74,9 +74,9 @@ $allProducts=$stmt->get_result();
 
     <section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5 "><br>
-            <h3> Our Featured</h3>
+            <h3> Our Products</h3>
             <hr>
-            <p>Here you can check out our featured products</p>
+            <p>Here you can check out our products</p>
         </div>
         <div class="row mx-auto container-fluid">
         <?php while($row=$allProducts->fetch_assoc()){ ?>
