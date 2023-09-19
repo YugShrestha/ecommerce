@@ -43,3 +43,4 @@ CREATE TABLE IF NOT EXISTS `users` (
     PRIMARY KEY (`user_id`),
     UNIQUE KEY `UX_Constraint` (`user_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+asdasdasdasdi
